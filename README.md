@@ -33,7 +33,10 @@ $ perf stat -e task-clock,cycles,instructions,cache-references,cache-misses  ./b
 ```
 
 ## 1M
-
+Assets were increased 5x.
+Instructions increased 4.7x.
+cache misses increased 22x.
+Initialization primarily increases writes, not reads, therefore would have little impact on cache misses.
 ```
 $ perf stat -e task-clock,cycles,instructions,cache-references,cache-misses  ./buffercopy
 26937 us
