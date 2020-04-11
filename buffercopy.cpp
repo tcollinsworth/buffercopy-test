@@ -14,7 +14,7 @@ const uint8_t contentAndScoreByteCnt = contentByteCnt + scoreByteCnt;
 uint8_t contentByteArray[contentByteCnt] = {0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0a};
 uint8_t scoreByteArray[scoreByteCnt] = {0x0b,0x0c,0x0d,0x0e};
 
-const uint32_t ASSET_NUM = 1000000; //200000; //1000000;
+const uint32_t ASSET_NUM = 400000; //200000; //1000000;
 
 uint8_t contentListByteArrays [ ASSET_NUM * contentByteCnt ];
 uint8_t contentScoreListByteArrays [ ASSET_NUM * scoreByteCnt ];
@@ -112,9 +112,11 @@ int main() {
   }
 
   //Fill the response buffer from content list byte arrays - from static buffers
-  for (int i = 0; i < ASSET_NUM; i++) {
-    memcpy(responseByteArray + i * contentAndScoreByteCnt, contentListByteArrays + randomIndexes[i]*contentAndScoreByteCnt, contentByteCnt);
-    memcpy(responseByteArray + i * contentAndScoreByteCnt + contentByteCnt, contentScoreListByteArrays + randomIndexes[i]*scoreByteCnt, scoreByteCnt);
+  for (int j = 0; j < 5000; j++) {
+    for (int i = 0; i < ASSET_NUM; i++) {
+      memcpy(responseByteArray + i * contentAndScoreByteCnt, contentListByteArrays + randomIndexes[i]*contentAndScoreByteCnt, contentByteCnt);
+      memcpy(responseByteArray + i * contentAndScoreByteCnt + contentByteCnt, contentScoreListByteArrays + randomIndexes[i]*scoreByteCnt, scoreByteCnt);
+    }
   }
 
   gettimeofday(&tp, NULL);

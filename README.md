@@ -60,3 +60,30 @@ $ perf stat -e task-clock,cycles,instructions,cache-references,cache-misses  ./b
 Running all blocks pollutes the timing of the other blocks.
 The first will be slower and later faster due to pipelining, caching, memory allocation.
 
+
+# Perf stats
+
+http://www.brendangregg.com/blog/2017-05-09/cpu-utilization-is-wrong.html
+
+http://www.brendangregg.com/perf.html
+
+
+```
+perf stat -e L1-dcache-load-misses,L1-dcache-loads,L1-dcache-stores,L1-icache-load-misses ./buffercopy
+```
+Last-Level-Cache, then DRAM
+```
+perf stat -e LLC-load-misses,LLC-loads,LLC-store-misses,LLC-stores,branch-load-misses,branch-loads ./buffercopy
+```
+Data Translation Lookaside Buffer
+```
+perf stat -e dTLB-load-misses,dTLB-loads,dTLB-store-misses,dTLB-stores ./buffercopy
+```
+Instruction Translation Lookaside Buffer
+```
+perf stat -e iTLB-load-misses,iTLB-loads ./buffercopy
+```
+
+```
+perf stat -e node-load-misses,node-loads,node-store-misses,node-stores ./buffercopy
+```
