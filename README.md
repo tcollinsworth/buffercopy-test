@@ -45,12 +45,6 @@ $ perf stat -e task-clock,cycles,instructions,cache-references,cache-misses  ./b
        193,843,202      instructions              #    1.14  insn per cycle         
          8,507,793      cache-references          #  193.835 M/sec                  
          4,233,899      cache-misses              #   49.765 % of all cache refs    
-
-       0.044135311 seconds time elapsed
-
-       0.028095000 seconds user
-       0.016054000 seconds sys
-
 ```
 
 # Executing Test
