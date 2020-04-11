@@ -1,4 +1,4 @@
-This is a test to see how fast C/C++ can build large (200K * 15 byte) buffers vs Python.
+This is a test to see how fast C/C++ can build large (200K * 14 byte) buffers vs Python.
 
 Python being interpreted and dynamic is too slow to build large byte buffers for a binary response, i.e., Google flatbuffers.
 
