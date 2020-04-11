@@ -15,7 +15,7 @@ Custom Python code assebling the buffer takes 100+ milliseconds
 ~1.5 ms|~8 ms | Built from list of buffers and scores accessing with indexes linearly (CPU pipeline/cache efficient)
 2 ms   |33 ms | Built from list of buffers and scores accessing with random indexes (NOT CPU pipeline/cache efficient)
 
-Notice how the first two which are pipeline/cache efficient are linear and the last which is NOT pipeline/cache efficient increases not 5x like the size, but 16.5x due to the pipeline miss trashing the data flow through the microprocessor.
+Notice how the first two which are pipeline/cache efficient are linear and the last which is NOT pipeline/cache efficient increases not 5x like the size, but 16.5x due to the pipeline cache misses trashing the data flow into the microprocessor.
 
 # Executing Test
 
