@@ -17,6 +17,12 @@ Custom Python code assebling the buffer takes 100+ milliseconds
 
 Notice how the first two which are pipeline/cache efficient are linear and the last which is NOT pipeline/cache efficient increases not 5x like the size, but 16.5x due to the pipeline cache misses trashing the data flow into the microprocessor.
 
+# Java results
+
+200K   | 1M    | Description
+-------|-------|--------------
+~11 ms | 50 ms | Built from list of buffers and scores accessing with random indexes (NOT CPU pipeline/cache efficient)
+
 ## 200K
 
 ```
