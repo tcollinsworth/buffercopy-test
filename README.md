@@ -23,6 +23,8 @@ Notice how the first two which are pipeline/cache efficient are linear and the l
 -------|--------|--------------
 ~32 ms | 390 ms | Built from list of buffers and scores accessing with random indexes (NOT CPU pipeline/cache efficient)
 
+Java bounds checks every index access which adds significant overhead.
+
 ## 200K
 
 ```
