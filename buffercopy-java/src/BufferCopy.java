@@ -1,5 +1,3 @@
-package buffercopy;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -10,9 +8,9 @@ public class BufferCopy {
 	int scoreLength = 4;
 	int metadataAndScoreLength = metadataLength + scoreLength;
 
-	int assets = 200000; // 1000000;
-	// 200K 11 ms
-	// 1M 50 ms
+	int assets = 1000000; // 200000; // 1000000;
+	// 200K 32 ms
+	// 1M 390 ms
 
 	byte[] contentMetadataBuffer = { 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a };
 	byte[] scoreBuffer = { 0x0b, 0x0c, 0x0d, 0x0e };
@@ -41,8 +39,8 @@ public class BufferCopy {
 
 			byte[][] responeList = new byte[assets][metadataAndScoreLength];
 			for (int i = 0; i < assets; i++) {
-				System.arraycopy(contentMetadataList.get(i), 0, responeList[i], 0, metadataLength);
-				System.arraycopy(scoreList.get(i), 0, responeList[i], metadataLength, scoreLength);
+				System.arraycopy(contentMetadataList.get(indexes[i]), 0, responeList[i], 0, metadataLength);
+				System.arraycopy(scoreList.get(indexes[i]), 0, responeList[i], metadataLength, scoreLength);
 				// System.out.println(byteArrayToHex(responeList[i]));
 			}
 

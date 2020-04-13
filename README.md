@@ -19,9 +19,9 @@ Notice how the first two which are pipeline/cache efficient are linear and the l
 
 # Java results
 
-200K   | 1M    | Description
--------|-------|--------------
-~11 ms | 50 ms | Built from list of buffers and scores accessing with random indexes (NOT CPU pipeline/cache efficient)
+200K   | 1M     | Description
+-------|--------|--------------
+~32 ms | 390 ms | Built from list of buffers and scores accessing with random indexes (NOT CPU pipeline/cache efficient)
 
 ## 200K
 
