@@ -8,7 +8,7 @@ public class BufferCopy {
 	int scoreLength = 4;
 	int metadataAndScoreLength = metadataLength + scoreLength;
 
-	int assets = 1000000; // 200000; // 1000000;
+	int assets = 200000; // 10; // 1000000;
 	// 200K 32 ms
 	// 1M 390 ms
 
@@ -34,14 +34,16 @@ public class BufferCopy {
 			indexes[i] = rnd.nextInt(assets);
 		}
 
-		for (int x = 0; x < 100000; x++) {
+		for (int x = 0; x < 1000; x++) {
 			long startNs = System.nanoTime();
 
-			byte[][] responeList = new byte[assets][metadataAndScoreLength];
+			byte[] responeList = new byte[assets * metadataAndScoreLength];
 			for (int i = 0; i < assets; i++) {
-				System.arraycopy(contentMetadataList.get(indexes[i]), 0, responeList[i], 0, metadataLength);
-				System.arraycopy(scoreList.get(indexes[i]), 0, responeList[i], metadataLength, scoreLength);
-				// System.out.println(byteArrayToHex(responeList[i]));
+				System.arraycopy(contentMetadataList.get(indexes[i]), 0, responeList, i * metadataAndScoreLength,
+						metadataLength);
+				System.arraycopy(scoreList.get(indexes[i]), 0, responeList,
+						i * metadataAndScoreLength + metadataLength, scoreLength);
+				// System.out.println(byteArrayToHex(responeList));
 			}
 
 			long endNs = System.nanoTime();
