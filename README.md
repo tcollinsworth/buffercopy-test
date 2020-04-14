@@ -1,4 +1,4 @@
-This is a test to see how fast C/C++ can build large (200K * 14 byte) buffers vs Python.
+This is a test to see how fast C/C++ can build large (200K * 14 byte) buffers vs Python, and Java.
 
 Python being interpreted and dynamic is too slow to build large byte buffers for a binary response, i.e., Google flatbuffers.
 
@@ -33,6 +33,8 @@ Notice how the first two which are pipeline/cache efficient are linear and the l
 200K   | 1M     | Description
 -------|--------|--------------
 ~30 ms |~370 ms | Built from list of buffers and scores accessing with random indexes (NOT CPU pipeline/cache efficient)
+
+Java bounds checks every index access which adds significant overhead.
 
 ## 200K
 
