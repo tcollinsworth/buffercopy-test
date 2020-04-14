@@ -1,10 +1,10 @@
-This is a test to see how fast C/C++ can build large (200K * 14 byte) buffers vs Python, and Java.
+This is a test to see how fast C/C++ can build large (200K * 14 byte) buffers vs Python, Node.js, and Java.
 
 Python being interpreted and dynamic is too slow to build large byte buffers for a binary response, i.e., Google flatbuffers.
 
-Python auto-generated flatbuffer code takes ~ 1 second to build a buffer containing 200K * (10 byte + 4 byte) payload.
+Python code is the simplest, but more than 2x slower than Java and ~30x slower than C++.
 
-Custom Python code assembling the buffer takes 100+ milliseconds
+Java is 30% slower than node.js for 1M buffers.
 
 # Python
 
