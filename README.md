@@ -8,31 +8,31 @@ Custom Python code assembling the buffer takes 100+ milliseconds
 
 # Python
 
-200K    | 1M      | Description
---------|---------|--------------
-~165 ms | ~980 ms | Built from list of buffers and scores accessing with random indexes (NOT CPU pipeline/cache efficient)
+200K   | 1M     | Description
+-------|--------|--------------
+~165ms | ~980ms | Built from list of buffers and scores accessing with random indexes (NOT CPU pipeline/cache efficient)
 
 # C++ results
 
-200K    | 1M     | Description
---------|--------|--------------
-~1 ms   |~6 ms   | Built from static buffers with memcpy
-~1.5 ms |~8 ms   | Built from list of buffers and scores accessing with indexes linearly (CPU pipeline/cache efficient)
-~2 ms   |~33 ms  | Built from list of buffers and scores accessing with random indexes (NOT CPU pipeline/cache efficient)
+200K   | 1M    | Description
+-------|-------|--------------
+~1ms   |~6ms   | Built from static buffers with memcpy
+~1.5ms |~8ms   | Built from list of buffers and scores accessing with indexes linearly (CPU pipeline/cache efficient)
+~2ms   |~33ms  | Built from list of buffers and scores accessing with random indexes (NOT CPU pipeline/cache efficient)
 
 Notice how the first two which are pipeline/cache efficient are linear and the last which is NOT pipeline/cache efficient increases not 5x like the size, but 16.5x due to the pipeline cache misses trashing the data flow into the microprocessor.
 
 # Node.js
 
-200K    | 1M      | Description
---------|---------|--------------
-~30 ms  | ~280 ms | Built from list of buffers and scores accessing with random indexes (NOT CPU pipeline/cache efficient)
+200K   | 1M     | Description
+-------|--------|--------------
+~30ms  | ~280ms | Built from list of buffers and scores accessing with random indexes (NOT CPU pipeline/cache efficient)
 
 # Java results
 
-200K   | 1M     | Description
--------|--------|--------------
-~30 ms |~370 ms | Built from list of buffers and scores accessing with random indexes (NOT CPU pipeline/cache efficient)
+200K  | 1M    | Description
+------|-------|--------------
+~30ms |~370ms | Built from list of buffers and scores accessing with random indexes (NOT CPU pipeline/cache efficient)
 
 Java bounds checks every index access which adds significant overhead.
 
