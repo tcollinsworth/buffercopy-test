@@ -43,7 +43,7 @@ It's optimized for GPU, but falls back to CPU
 
 200K  | 1M    | Description
 ------|-------|--------------
-~12ms |~48ms  | GPU 394 core laptop
+~12ms |~48ms  | GPU 394 core laptop, will beat C++ on AWS g4dn 2540 core GPU
 ~25ms |~175ms | CPU 4 core hyperthreaded
 
 
