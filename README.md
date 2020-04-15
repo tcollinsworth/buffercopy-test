@@ -36,6 +36,17 @@ Notice how the first two which are pipeline/cache efficient are linear and the l
 
 Java bounds checks every index access which adds significant overhead.
 
+# Python Tensorflow results
+
+This is very different and combines a 4 byte index into the high bytes of a unit64 and 4 byte score into low bytes.
+It's optimized for GPU, but falls back to CPU
+
+200K  | 1M    | Description
+------|-------|--------------
+~12ms |~48ms  | GPU 394 core laptop
+~25ms |~175ms | CPU 4 core hyperthreaded
+
+
 ## 200K
 
 ```
