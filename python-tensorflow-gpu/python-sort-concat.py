@@ -4,7 +4,7 @@ import time
 import sys
 import numpy as np
 
-assets = 1000000
+assets = 400000
 
 # unit64 exists, but is not supported in required TF operations
 # 4 bytes signed = 2 billion
@@ -55,7 +55,6 @@ def doIt():
 #     print('indexes', indexes)
     sortedMetadata = tf.gather(metadata, indexes)
     sortedScores = tf.gather(scores, indexes)
-    elems = (sortedMetadata, sortedScores)
     combined = tf.add(sortedMetadata, sortedScores)
 #     printTfHex('combined', combined)
     endMs = int(round(time.time() * 1000))
