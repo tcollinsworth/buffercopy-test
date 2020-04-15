@@ -80,7 +80,7 @@ $ perf stat -e task-clock,cycles,instructions,cache-references,cache-misses  ./b
          4,233,899      cache-misses              #   49.765 % of all cache refs    
 ```
 
-# Executing Test
+# Executing C++ Test
 
 * In buffercopy.cpp, set the ASSET_NUM to 200000 or 1000000 or whatever.
 * Uncomment one test block, compile and run.
