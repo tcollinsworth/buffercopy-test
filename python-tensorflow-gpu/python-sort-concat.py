@@ -4,7 +4,7 @@ import time
 import sys
 import numpy as np
 
-assets = 1000000
+assets = 200000
 
 # unit64 exists, but is not supported in required TF operations
 # 4 bytes signed = 2 billion
@@ -67,10 +67,17 @@ for i in range(10):
 #     print(tf.print(tf.slice(combined, [0], [2])))
 #     printTfHex('combined', combined)
 
+    endMs = int(round(time.time() * 1000))
+    print('compute tensors (GPU) ', endMs - startMs)
+
+    startMs = int(round(time.time() * 1000))
+
+    # consider using cython moving this to C++ https://cython.org/
     b = bytearray(assets*8)
     foo = combined.numpy()
     a = 0
     for i in range(assets):
         b[i*8:i*8+8] = foo[0].item().to_bytes(8, 'big')
+
     endMs = int(round(time.time() * 1000))
-    print(endMs - startMs)
+    print('only buffercopy (CPU) ', endMs - startMs)

@@ -41,12 +41,21 @@ Java bounds checks every index access which adds significant overhead.
 This is very different and combines a 4 byte index into the high bytes of a unit64 and 4 byte score into low bytes.
 It's optimized for GPU, but falls back to CPU
 
+Tensor operations sorting/combining
+
 200K  | 1M    | Description
 ------|-------|--------------
-~11ms |~75ms  | GPU 394 core laptop
-~14ms |~65ms  | AWS g4dn 2540 core GPU
-~39ms |~216ms | CPU 4 core hyperthreaded
+~8ms  |~50ms  | GPU 394 core laptop
+~14ms |~59ms  | AWS g4dn 2540 core GPU
+~24ms |~135ms | CPU 4 core hyperthreaded
 
+Buffer iteration/copy (CPU)
+
+200K   | 1M    | Description
+-------|-------|--------------
+~170ms |~870ms | GPU 394 core laptop
+~210ms |~1070ms| AWS g4dn 2540 core GPU
+~170ms |~870ms | CPU 4 core hyperthreaded
 
 ## 200K
 
