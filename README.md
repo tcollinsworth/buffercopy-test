@@ -4,7 +4,7 @@ Python being interpreted and dynamic is too slow to build large byte buffers for
 
 Python code is the simplest, but more than 2x slower than Java and ~30x slower than C++.
 
-Java is 30% slower than node.js for 1M buffers.
+Java is 24% slower than node.js for 1M buffers.
 
 # Python
 
