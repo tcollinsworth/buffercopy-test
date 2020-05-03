@@ -2,9 +2,11 @@ This is a test to see how fast C/C++ can build large (200K * 14 byte) buffers vs
 
 Python being interpreted and dynamic is too slow to build large byte buffers for a binary response, i.e., Google flatbuffers.
 
-Python code is the simplest, but more than 2x slower than Java and ~30x slower than C++.
+Python code is the simplest, but more than 2x slower than Java and ~30x slower than C++. Actually using C operations.
 
 Java is 24% slower than node.js for 1M buffers.
+
+In the end, through some creative tensor optimizations, it's possible to build the flatbuffers on the GPU very, very fast. The header is added after the tensor is pulled off the GPU. This makes it possible to get marginally acceptable performance out of Python. Unfortunately the code is complex and confusing compared to stupid, simple, obvious node.js or C++.
 
 # Python
 
